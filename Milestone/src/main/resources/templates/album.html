@@ -1,0 +1,85 @@
+<html
+  xmlns:th="http://www.thymeleaf.org"
+  xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+  layout:decorate="layouts/defaultTemplate"
+  lang="en"
+>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <!-- bootstrap, Thymeleaf.org and layout/ultra q, CSS, Google font  -->
+    <title>Specific Album</title>
+  </head>
+  <body>
+    <div layout:fragment="content">
+
+		
+      
+      
+		
+		
+	
+  <div class="container py-4">
+	  
+	 <!-- Header indicating if logged in or not -->
+    <header class="pb-3 mb-4 border-bottom">     
+        <div class="container col-xxl-8 px-4 py-5">
+    <div class="row flex-lg-row-reverse align-items-center g-5 py-5">
+      
+      <!-- Image of Album cover on left  -->
+      <div class="col-10 col-sm-8 col-lg-6">
+		  <h1 th:text="${product.title}" class="display-5 fw-bold text-body-emphasis lh-1 mb-3">Album title</h1>
+        
+        <p th:text="${product.artist}" class="lead">Artist/s</p>
+        <p th:text="${product.price}" class="lead">Price</p>
+
+        <p th:text="${product.year}" class="lead">Release date (year)</p>
+        <p th:text="${product.genreID}" class="lead">Genre</p>
+        <p th:text="${product.description}" class="lead">Description</p>
+        
+      </div>
+      
+      <!-- Image of Album cover on left  -->
+      <div class="col-lg-6">
+        
+        <img th:src="${product.imagePath}" class="d-block mx-lg-auto img-fluid" alt="${product.title} album cover" width="700" height="500" loading="lazy">
+       
+      </div>
+    </div>
+  </div>
+  
+      
+    </header>
+
+	<!-- Interaction options -->
+
+    <div class="row align-items-md-stretch">
+      <div class="col-md-6">
+        <div class="h-100 p-5 text-bg-dark rounded-3">
+          <h2>Request An Album Edit</h2>
+          <p>Not quite what you were looking for? Edit what you see to be more like what you'd like to see. If apporoved and available we will get it for you.</p>
+          
+          <!-- Create album - opens create page -->
+          <a href="/products/createProduct" class="btn btn-outline-light">Request Album</a>
+          
+        </div>
+      </div>
+      <div class="col-md-6">
+        <div class="h-100 p-5 bg-body-tertiary border rounded-3">
+          <h2>Reserve An Album</h2>
+          <p>Like something you see? Reserve an album and we will temporaily remove it from our inventory giving you time to really decide if it's the one. If it is go ahead and proceed to buying it and bringing it on home.</p>
+          
+          <!-- Reserve album - opens a pop-up to confirm deletion/reserving (this should add this album to cart) -->
+          <a href="/products/reservations" class="btn btn-outline-secondary">Reserve Album</a>
+        
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+      <br />
+      <br />
+    </div>
+  </body>
+</html>

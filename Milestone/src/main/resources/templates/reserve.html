@@ -1,0 +1,91 @@
+<html
+  xmlns:th="http://www.thymeleaf.org"
+  xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+  layout:decorate="layouts/defaultTemplate"
+  lang="en"
+>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <!-- bootstrap, Thymeleaf.org and layout/ultra q, CSS, Google font  -->
+    <title>Spin City Albums</title>
+  </head>
+  <body>
+    <div layout:fragment="content">
+		<main>
+			
+<!-- Hero banner with discounts -->
+  <section class="py-5 text-center container">
+    <div class="row py-lg-5">
+      <div class="col-lg-6 col-md-8 mx-auto">
+        <h1 class="fw-light">Albums in Stock</h1>
+        <p class="lead text-body-secondary">See something that would look great in your record player? We think so too! If it's better in your hands, you can choose to reserve the album below for yourself.</p>
+        <p>
+          <a href="#" class="btn btn-primary my-2">Main call to action</a>
+          <a href="#" class="btn btn-secondary my-2">Secondary action</a>
+        </p>
+      </div>
+    </div>
+  </section>
+
+
+<!-- Products -->
+  <div class="album py-5 bg-body-tertiary">
+    <div class="container">
+
+      <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 g-3">
+		  
+        <div class="col"  th:each="product : ${products}">
+			
+          <div class="card shadow-sm">
+			<h2 th:text="${product.ID}">Album Title</h2>
+			<h2 th:text="${product.title}">Album Title</h2>
+			<h2 th:text="${product.artist}">Album Artist</h2>
+            <img th:src="${product.imagePath}" class="card-img-top" alt="${product.title} album cover">
+            <div class="card-body">
+              <!--
+              <p class="card-text" th:text="${product.description}">Description</p>
+              -->
+              <div class="d-flex justify-content-between align-items-center">
+			    <div class="btn-group">
+			        <button type="button" class="btn btn-sm btn-outline-danger" data-bs-toggle="modal" th:data-bs-target="'#deleteConfirmationModal' + ${product.ID}">Reserve</button>
+			    </div>
+			
+			    <!-- Modal for each product -->
+			    <div class="modal fade" th:id="'deleteConfirmationModal' + ${product.ID}" tabindex="-1" aria-labelledby="'deleteConfirmationModalLabel' + ${product.ID}" aria-hidden="true">
+			        <div class="modal-dialog">
+			            <div class="modal-content">
+			                <div class="modal-header">
+			                    <h5 class="modal-title" th:id="'deleteConfirmationModalLabel' + ${product.ID}">Confirm Reservation</h5>
+			                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+			                </div>
+			                <div class="modal-body">
+			                    Are you sure you want to reserve this product?
+			                </div>
+			                <div class="modal-footer">
+			                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">I'm not sure...</button>
+     				             <form action="#" th:action="@{deleteProduct(id=${product.getID()})}" method="post">
+							        <button type="submit" class="btn btn-danger">Yes, I'm sure!</button>
+							    </form>
+							</div>
+			            </div>
+			        </div>
+			    </div>
+                <small class="text-body-secondary" th:text="${product.price}">price</small>
+              </div>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </div>
+
+</main>
+      
+
+      <br />
+      <br />
+    </div>
+  </body>
+</html>

@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org" xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout" layout:decorate="~{layouts/defaultTemplate}">
+<head>
+    <meta charset="UTF-8">
+    <title>Error</title>
+</head>
+<body>
+<div layout:fragment="content">
+  <div class="container text-center">
+    <h1 th:text="'Error ' + ${status}">Error CODE</h1>
+    <h3 th:text="${error}">MESSAGE</h3>
+    <code th:text="${message}">CODE</code>
+  </div>
+</div>
+</body>
+</html>

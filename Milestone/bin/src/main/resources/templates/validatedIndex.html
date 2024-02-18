@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+
+<html
+  xmlns:th="http://www.thymeleaf.org"
+  xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+  layout:decorate="layouts/defaultTemplate"
+  lang="en"
+>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <!-- bootstrap, Thymeleaf.org and layout/ultra q, CSS, Google font  -->
+    <title>Spin City Validated Index</title>
+  </head>
+  <body>
+	  
+    <div layout:fragment="content">
+      <!-- Hero banner with discounts -->
+            
+		<main>
+  <div class="container py-4">
+	  
+	 <!-- Header indicating if logged in or not -->
+    <header class="pb-3 mb-4 border-bottom">     
+        <span class="fs-4">Login Sucess! Now able to interact with products</span>     
+    </header>
+
+	<!-- Interaction options -->
+	
+	
+	<div class="p-5 mb-4 bg-body-tertiary rounded-3">
+    <div class="row flex-lg-row-reverse align-items-center g-5 py-5">
+      <div class="col-10 col-sm-8 col-lg-6">
+    	<img th:src="@{/images/CloseFlowerBoyRecord.webp}" class="d-block mx-lg-auto img-fluid" alt="Bootstrap Themes" width="300" height="200" loading="lazy">
+	  </div>
+      <div class="col-lg-6">
+        <h1 class="display-5 fw-bold text-body-emphasis lh-1 mb-3">What's in stock</h1>
+        <p class="lead">Check out our inventory of vinyl albums!</p>
+        <div class="d-grid gap-2 d-md-flex justify-content-md-start">
+          <a href="/products/inventory" class="btn btn-primary btn-lg">Inventory</a>
+        </div>
+      </div>
+    </div>
+  </div>
+	
+	
+
+
+
+
+
+
+
+
+
+
+
+    <div class="row align-items-md-stretch">
+      <div class="col-md-6">
+        <div class="h-100 p-5 text-bg-dark rounded-3">
+          <h2>Request An Album</h2>
+          <p>Looking for something you don't see? Create a request for what you'd like to see and if apporoved and available we will get it for you!.</p>
+          
+          
+          <a href="/products/createProduct" class="btn btn-outline-light">Request Album</a>
+          
+        </div>
+      </div>
+      <div class="col-md-6">
+        <div class="h-100 p-5 bg-body-tertiary border rounded-3">
+          <h2>Reserve An Album</h2>
+          <p>Like something you see? Reserve an album and we will temporaily remove it from our inventory giving you time to really decide if it's the one.</p>
+          
+          <a href="/products/reservations" class="btn btn-outline-secondary">Reserve Album</a>
+        
+        </div>
+      </div>
+    </div>
+  </div>
+</main>
+
+		<br /><br /><br />
+		
+      <!-- Products -->
+  <div class="album py-5 bg-body-tertiary">
+    <div class="container">
+
+      <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 g-3">
+		  
+        <div class="col"  th:each="product : ${products}">
+			
+          <div class="card shadow-sm">
+			<h2 th:text="${product.title}">Album Title</h2>
+			<h2 th:text="${product.artist}">Album Artist</h2>
+            <img th:src="${product.imagePath}" class="card-img-top" alt="${product.title} album cover">
+            <div class="card-body">
+              <p class="card-text" th:text="${product.description}">Description</p>
+              <div class="d-flex justify-content-between align-items-center">
+                <div class="btn-group">
+                  <button type="button" class="btn btn-sm btn-outline-secondary">View</button>
+                  <button type="button" class="btn btn-sm btn-outline-secondary">Edit</button>
+                </div>
+                <small class="text-body-secondary" th:text="${product.price}">price</small>
+              </div>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </div>
+				
+		<br /><br /><br />		
+				
+				<!-- Featured albums -->
+<div class="row row-cols-1 row-cols-md-3 g-4">
+  <div class="col">
+    <div class="card h-100">
+      <img src="..." class="card-img-top" alt="...">
+      <div class="card-body">
+        <h5 class="card-title">Album title</h5>
+        <p class="card-text">Artist, price</p>
+      </div>
+    </div>
+  </div>
+  <div class="col">
+    <div class="card h-100">
+      <img src="..." class="card-img-top" alt="...">
+      <div class="card-body">
+        <h5 class="card-title">Album title</h5>
+        <p class="card-text">Artist, price</p>
+      </div>
+    </div>
+  </div>
+  <div class="col">
+    <div class="card h-100">
+      <img src="..." class="card-img-top" alt="...">
+      <div class="card-body">
+        <h5 class="card-title">Album title</h5>
+        <p class="card-text">Artist, price</p>
+      </div>
+    </div>
+  </div>
+</div>
+        
+      <br />
+      <br />
+    </div>
+  </body>
+</html>

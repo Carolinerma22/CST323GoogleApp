@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+
+<html
+  xmlns:th="http://www.thymeleaf.org"
+  xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+  layout:decorate="layouts/defaultTemplate"
+  lang="en"
+>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <!-- bootstrap, Thymeleaf.org and layout/ultra q, CSS, Google font  -->
+    <title>Spin City Index</title>
+  </head>
+  
+  
+  <body>
+    <div layout:fragment="content">
+		
+		<!-- Hero banner image -->
+      <img th:src="@{/images/RecordShelf.jpg}" class="img-fluid" alt="Vinyl Shelf">
+      
+      	<!-- Header indicating if logged in or not -->
+		<div class="container py-4">
+			<header class="pb-3 mb-4 border-bottom">     
+        		<span class="fs-4">Home screen before signing in</span>     
+      		</header>
+		</div>
+			
+	  
+		
+		
+      
+      <!-- Hero - encourages sign in -->
+		<div class="container col-xxl-8 px-4 py-5">
+    <div class="row flex-lg-row-reverse align-items-center g-5 py-5">
+      <div class="col-10 col-sm-8 col-lg-6">
+        <img th:src="@{images/RedRecordPlayer.jpg}" class="d-block mx-lg-auto img-fluid" alt="Red Record Player" width="700" height="500" loading="lazy">
+      </div>
+      <div class="col-lg-6">
+        <h1 class="display-5 fw-bold text-body-emphasis lh-1 mb-3">Spin City Vinyls</h1>
+        <p class="lead">Spin City is a unique and responsive online marketplace for vinyl albums. Beacuse we are so devoted to getting you just what you want we need to know you alittle bit. To interact with us sign in is required</p>
+        <div class="d-grid gap-2 d-md-flex justify-content-md-start">
+          <button type="button" class="btn btn-primary btn-lg px-4 me-md-2" fdprocessedid="nsslfs">Login</button>
+          <button type="button" class="btn btn-outline-secondary btn-lg px-4" fdprocessedid="opld6e">Register</button>
+        </div>
+      </div>
+    </div>
+  </div>
+      
+      
+      <!-- Banner - Request and Reserve -->
+      <div class="container my-5">
+    <div class="row p-4 pb-0 pe-lg-0 pt-lg-5 align-items-center rounded-3 border shadow-lg">
+      <div class="col-lg-7 p-3 p-lg-5 pt-lg-3">
+        <h1 class="display-4 fw-bold lh-1 text-body-emphasis">Request and Reserve</h1>
+        <p class="lead">Been looking for an album on vinyl? We might just have what's not on the shelves anywhere else. Throw in a request and we will look for you and request a copy! Found what you can't find anywhere and want to make sure it's yours. Reserve the vinyl temporarily while you price compare.</p>
+        <div class="d-grid gap-2 d-md-flex justify-content-md-start mb-4 mb-lg-3">
+          
+        </div>
+      </div>
+      <div class="col-lg-4 offset-lg-1 p-0 overflow-hidden shadow-lg">
+          <img class="rounded-lg-3" th:src="@{/images/TaylorSwiftVinyl.jpg}" alt="Taylor Swift Vinyls" width="720">
+      </div>
+    </div>
+  </div>
+
+<br /><br /><br />
+
+<!-- Featured albums -->
+<div class="row row-cols-1 row-cols-md-3 g-4">
+  <div class="col">
+    <div class="card h-100">
+      <img src="..." class="card-img-top" alt="...">
+      <div class="card-body">
+        <h5 class="card-title">Album title</h5>
+        <p class="card-text">Artist, price</p>
+      </div>
+    </div>
+  </div>
+  <div class="col">
+    <div class="card h-100">
+      <img src="..." class="card-img-top" alt="...">
+      <div class="card-body">
+        <h5 class="card-title">Album title</h5>
+        <p class="card-text">Artist, price</p>
+      </div>
+    </div>
+  </div>
+  <div class="col">
+    <div class="card h-100">
+      <img src="..." class="card-img-top" alt="...">
+      <div class="card-body">
+        <h5 class="card-title">Album title</h5>
+        <p class="card-text">Artist, price</p>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+
+
+
+	    </div>
+					
+
+      <br />
+      <br />
+  </body>
+</html>
